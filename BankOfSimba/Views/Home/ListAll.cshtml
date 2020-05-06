@@ -1,0 +1,49 @@
+﻿@using BankOfSimba.Models
+@model List<BankAccount>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>All accounts</title>
+</head>
+<body>
+
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        var account = Model[i];
+        var emoji = account.IsGoodGuy ? "&#128077;" : "&#128078";
+        <table style="@(account.IsKing?"background-color:gold":"")">
+            <tr>
+                <td>Account index:</td>
+                <td>@i</td>
+            </tr>
+            <tr>
+                <td>Account name:</td>
+                <td>@account.Name @Html.Raw(emoji)</td>
+            </tr>
+            <tr>
+                <td>Balance:</td>
+                <td>@account.Balance Zebra</td>
+            </tr>
+            <tr>
+                <td>Animal type:</td>
+                <td>@account.Species</td>
+            </tr>
+            <tr>
+                <td>
+                    <form action="/increase" method="post">
+                        <input type="hidden" name="account" value="@i">
+                        <input type="Submit" value="Increase Balance">
+                    </form>
+                </td>
+                <td>
+                    <form action="/toggleking" method="post">
+                        <input type="hidden" name="account" value="@i">
+                        <input type="Submit" value="Toggle King">
+                    </form>
+                </td>
+            </tr>
+        </table>
+        <hr>
+    }
+</body>
+</html>

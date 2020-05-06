@@ -1,0 +1,41 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Create New Account</title>
+</head>
+<body>
+    <form action="/create" method="post">
+        <table>
+            <tr>
+                <td><label for="name">Account Name:</label></td>
+                <td><input type="text" name="name" value="Account Name" required></td>
+            </tr>
+            <tr>
+                <td><label for="balance">Initial Balance:</label></td>
+                <td><input type="number" step=".01" name="balance" value="Balance" required></td>
+            </tr>
+            <tr>
+                <td><label for="species">Species:</label></td>
+                <td><input type="text" name="species" value="Animal Species" required></td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="isKing">Is The King</label>
+                    <input type="checkbox" name="isKing" value="true">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="isGoodGuy">Is A Good Guy</label>
+                    <input type="checkbox" name="isGoodGuy" value="true">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Create Account">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
+
